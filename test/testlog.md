@@ -1,3 +1,49 @@
+### 2017-03-16T15:35:10+0800
+curl
+```
+$ curl -XPOST -H 'Content-Type:application/graphql'  -d '{ ticker(id:"TWD") { id last buy sell} }' http://localhost:4000/graphql
+{"data":{"ticker":{"id":"TWD","last":38221.14,"buy":38223.63,"sell":38267.08}}}
+```
+query
+```
+{
+  tickerUSD: ticker(id:"USD") {
+    id
+    buy
+    sell
+    last
+    updatedAt
+    url
+  },
+  tickerTWD: ticker(id:"TWD") {
+    id
+    buy
+    updatedAt
+    url
+  }
+}
+```
+response
+```
+{
+  "data": {
+    "tickerUSD": {
+      "id": "USD",
+      "buy": 1237.1,
+      "sell": 1238.75,
+      "last": 1237.06,
+      "updatedAt": "2017-03-16T07:34:40.059Z",
+      "url": "https://blockchain.info/ticker?cors=true"
+    },
+    "tickerTWD": {
+      "id": "TWD",
+      "buy": 38394.64,
+      "updatedAt": "2017-03-16T07:34:40.056Z",
+      "url": "https://blockchain.info/ticker?cors=true"
+    }
+  }
+}
+```
 ### 2017-03-16T09:11:09+0800
 ```
 $ node express.js

@@ -1,5 +1,7 @@
 'use strict'
 
-module.exports = function (number, locale) {
-  return number.toLocaleString(locale)
+var Gql = require('./data/gql')
+
+module.exports = {
+  Gql: Gql
 }

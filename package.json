@@ -1,7 +1,7 @@
 {
   "name": "@y12/dltdojo-oracle",
   "version": "0.0.1",
-  "description": "dltdojo oracle lib",
+  "description": "dltdojo bigbro",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

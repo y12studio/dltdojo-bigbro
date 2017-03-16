@@ -1,42 +1,34 @@
 const fetch = require('node-fetch')
-const { GraphQLScalarType } = require('graphql')
-const { Kind } = require('graphql/language')
-const {
-  GraphQLDateTime
-} = require('graphql-iso-date')
+const _ = require('lodash')
 class Ticker {
-  constructor (_type, _buy, _sell, _last, _raw, _datetime) {
-    this.type = _type
+  constructor (_id, _buy, _sell, _last, _raw, _datetime, _url) {
+    this.id = _id
     this.buy = _buy
     this.sell = _sell
     this.last = _last
     this.raw = _raw
     this.updatedAt = _datetime
+    this.url = _url
   }
 }
+const BCIURL = 'https://blockchain.info/ticker?cors=true'
+
 const resolvers = {
-  DateTime: new GraphQLScalarType({
-    name: 'DateTime',
-    description: 'Date time custom scalar type',
-    parseValue (value) {
-      return new Date(value) // value from the client
-    },
-    serialize (value) {
-      return value.toJSON() // value sent to the client
-    },
-    parseLiteral (ast) {
-      if (ast.kind === Kind.STRING) {
-        return new Date(ast.value) // ast value is always in string format
-      }
-      return null
-    }
-  }),
-  getTicker: (args) => {
-    return fetch('https://blockchain.info/ticker?cors=true').then(r => {
+  tickers: () => {
+    return fetch(BCIURL).then(r => {
       return r.json()
     }).then(res => {
-      var v = res[args.type]
-      return new Ticker(args.type, v.buy, v.sell, v.last, JSON.stringify(res), new Date().toISOString())
+      return _.map(res, (v,k) => {
+        return new Ticker(k, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(),BCIURL)
+      })
+    })
+  },
+  ticker: ({id}) => {
+    return fetch(BCIURL).then(r => {
+      return r.json()
+    }).then(res => {
+      var v = res[id]
+      return new Ticker(id, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(),BCIURL)
     })
   }
 }

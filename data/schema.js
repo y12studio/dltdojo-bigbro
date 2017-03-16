@@ -1,14 +1,16 @@
 const schema = `
 type Ticker {
-    type: String
+    id: String
     buy: Float
     sell: Float
     last: Float
     updatedAt: String
+    url: String
     raw: String
 }
 type Query {
-  getTicker(type:String): Ticker
+    tickers:[Ticker!]!
+    ticker(id: ID!):Ticker
 }
 schema {
 	query: Query
