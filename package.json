@@ -1,5 +1,5 @@
 {
-  "name": "@y12/dltdojo-oracle",
+  "name": "@y12/dltdojo-bigbro",
   "version": "0.0.1",
   "description": "dltdojo bigbro",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/y12studio/dltdojo-oracle.git"
+    "url": "git+https://github.com/y12studio/dltdojo-bigbro.git"
   },
   "author": "JOYE LIN <y12studio@gmail.com> (https://y12.tw)",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/y12studio/dltdojo-oracle/issues"
+    "url": "https://github.com/y12studio/dltdojo-bigbro/issues"
   },
-  "homepage": "https://github.com/y12studio/dltdojo-oracle#readme",
+  "homepage": "https://github.com/y12studio/dltdojo-bigbro#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0"

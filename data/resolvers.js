@@ -18,8 +18,8 @@ const resolvers = {
     return fetch(BCIURL).then(r => {
       return r.json()
     }).then(res => {
-      return _.map(res, (v,k) => {
-        return new Ticker(k, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(),BCIURL)
+      return _.map(res, (v, k) => {
+        return new Ticker(k, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(), BCIURL)
       })
     })
   },
@@ -28,7 +28,7 @@ const resolvers = {
       return r.json()
     }).then(res => {
       var v = res[id]
-      return new Ticker(id, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(),BCIURL)
+      return new Ticker(id, v.buy, v.sell, v.last, JSON.stringify(v), new Date().toISOString(), BCIURL)
     })
   }
 }
