@@ -4,13 +4,14 @@
   "description": "dltdojo bigbro",
   "main": "index.js",
   "scripts": {
+    "start": "node express.js",
     "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/y12studio/dltdojo-bigbro.git"
   },
-  "author": "JOYE LIN <y12studio@gmail.com> (https://y12.tw)",
+  "author": "JOYE LIN <y12studio@gmail.com> (https://github.com/y12studio/)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/y12studio/dltdojo-bigbro/issues"
@@ -21,6 +22,8 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
+    "bitcore-lib": "^0.14.0",
+    "ethjs-account": "^0.1.1",
     "express": "^4.15.2",
     "express-graphql": "^0.6.3",
     "graphql": "^0.9.1",

@@ -8,9 +8,20 @@ type Ticker {
     url: String
     raw: String
 }
+type Key {
+    id: String!
+    address: String!
+    privateKey: String!
+    publicKey: String
+}
+type Http418 {
+    coffee:String
+    randomkeys:[Key!]!
+}
 type Query {
     tickers:[Ticker!]!
     ticker(id: ID!):Ticker
+    code418:Http418
 }
 schema {
 	query: Query
